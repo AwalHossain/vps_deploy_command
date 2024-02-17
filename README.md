@@ -67,9 +67,9 @@ now you will have to create a folder where you will do your necessary work, for 
 ``` 
 cd /var/www 
 
-mkdir streaming
+mkdir [your directory name]
 
-cd streaming
+cd  [your directory name]
 
 ```
 
