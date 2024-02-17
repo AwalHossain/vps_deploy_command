@@ -119,11 +119,12 @@ cd /etc/nginx/sites-available/
 ```
 
 ```
-ls
+nano default
 ```
 
 you'll see default file now let's edit this default file
 
+```
  location / {
                 # First attempt to serve request as file, then
                 # as directory, then fall back to displaying a 404.
@@ -134,7 +135,7 @@ you'll see default file now let's edit this default file
                 proxy_set_header Host $host;
                 proxy_cache_bypass $http_upgrade;
         }
-
+```
 proxy_pass http://localhost:5000;: This command tells Nginx to forward requests it receives to http://localhost:5000, which is the address of the application you're running. Replace 5000 with the port number your application is running on.
 
 proxy_http_version 1.1;: This command sets the version of the HTTP protocol that will be used for the proxy request. In this case, it's HTTP/1.1.
@@ -150,7 +151,7 @@ proxy_cache_bypass $http_upgrade;: This command tells Nginx to bypass the cache 
 After you've replaced localhost:5000 with your port number, you need to save the configuration and restart Nginx for the changes to take effect. You can check your port number by running the pm2 list command, which will show you your project name and port number.
 
 ```
-systemctl restart nignx
+systemctl restart nginx
 ```
 
 and then check nginx status to check nginx running successfully
@@ -172,7 +173,7 @@ nano default
 and add your domain name as server_name and save it. 
 
 ```
-        server_name api.reely.tech;
+        server_name [your_domain/subdomain_name];
 
         location / {
                 # First attempt to serve request as file, then
